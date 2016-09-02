@@ -7,13 +7,13 @@ title: Contacto
 	<hr />
 	<section>
 		<h4>Form</h4>
-		<form method="post" action="#">
+		<form id="contact-form" method="post">
 			<div class="row uniform">
 				<div class="6u$ 12u$(xsmall)">
-					<input type="email" name="demo-email" id="demo-email" value="" placeholder="Email" />
+					<input type="email" name="contact-email" id="contact-email" value="" placeholder="Email" />
 				</div>
 				<div class="12u$">
-					<textarea name="demo-message" id="demo-message" placeholder="Escribe tu mensaje aquí" rows="6"></textarea>
+					<textarea name="contact-message" id="contact-message" placeholder="Escribe tu mensaje aquí" rows="6"></textarea>
 				</div>
 				<div class="12u$">
 					<ul class="actions">
@@ -24,3 +24,34 @@ title: Contacto
 			</div>
 		</form>
 	</section>
+
+	<script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
+	<script>
+	  // Initialize Firebase
+	  var config = {
+		  apiKey: "AIzaSyDWnAihJaF3txJ3SRycwwJbwJH7r3hREQg",
+		  authDomain: "bfhabogados-d7aaf.firebaseapp.com",
+		  databaseURL: "https://bfhabogados-d7aaf.firebaseio.com",
+		  storageBucket: "",
+	  };
+	  firebase.initializeApp(config);
+
+	  var contactForm = document.querySelector('#contact-form');
+	  contactForm.addEventListener('submit', function(event) {
+		  event.preventDefault();
+		  var email = document.querySelector('#contact-email');
+		  var message = document.querySelector('#contact-message');
+		  // TODO Avoid bots
+		  // TODO Validate fields
+		  submitContact(email.value, message.value);
+		  // TODO Show feedback
+	  }, false);
+
+	  function submitContact(email, message){
+		  firebase.database().ref('contacts').push({
+			  email: email,
+			  message: message
+		  });
+	  }
+
+	</script>
