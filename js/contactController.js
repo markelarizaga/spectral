@@ -12,13 +12,12 @@ contactForm.addEventListener('submit', prepareFormInfo, false);
 
 function prepareFormInfo(event) {
     event.preventDefault();
-    var email = $('#contact-email');
-    var message = $('#contact-message');
+    var email = $('#contact-email').val();
+    var message = $('#contact-message').val();
     var terms = $('#contact-terms');
 
-    // TODO Validate fields
     if(!terms.checked){
-        submitContact(email.val(), message.val());
+        submitContact(email, message);
     } else {
         showContactSuccess();
     }
