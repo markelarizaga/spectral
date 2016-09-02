@@ -8,19 +8,21 @@ var config = {
 firebase.initializeApp(config);
 
 var contactForm = document.querySelector('#contact-form');
-contactForm.addEventListener('submit', function(event) {
+contactForm.addEventListener('submit', prepareFormInfo, false);
+
+function prepareFormInfo(event) {
     event.preventDefault();
-    var email = document.querySelector('#contact-email');
-    var message = document.querySelector('#contact-message');
-    var terms = document.querySelector('#contact-terms');
+    var email = $('#contact-email');
+    var message = $('#contact-message');
+    var terms = $('#contact-terms');
 
     // TODO Validate fields
     if(!terms.checked){
-        submitContact(email.value, message.value);
+        submitContact(email.val(), message.val());
     } else {
         showContactSuccess();
     }
-}, false);
+}
 
 function submitContact(email, message){
     firebase.database().ref('contacts').push({
@@ -30,5 +32,6 @@ function submitContact(email, message){
 }
 
 function showContactSuccess(){
-    alert('Contact sent');
+    $('#form-container').addClass('hidden');
+    $('#contact-success').removeClass('hidden');
 }

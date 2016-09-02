@@ -7,8 +7,8 @@ title: Contacto
 	<hr />
 	<section>
 		<h4>Form</h4>
-		<form id="contact-form" method="post">
-			<div class="row uniform">
+		<form id="contact-form">
+			<div id="form-container" class="row uniform">
 				<div class="6u$ 12u$(xsmall)">
 					<input type="email" name="contact-email" id="contact-email" value="" placeholder="Email" />
 				</div>
@@ -25,6 +25,9 @@ title: Contacto
 						<li><input type="reset" value="Borrar" /></li>
 					</ul>
 				</div>
+			</div>
+			<div id="contact-success" class="hidden">
+				<p>La consulta se ha enviado correctamente.</p>
 			</div>
 		</form>
 	</section>

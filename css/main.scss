@@ -209,6 +209,10 @@ $baseurl: '{{ site.baseurl }}/images';
 		text-align: right;
 	}
 
+	.hidden {
+		display: none;
+	}
+
 /* Section/Article */
 
 	section, article {
