@@ -36,7 +36,12 @@ function submitContact(email, message){
     });
 }
 
-function showContactSuccess(){
-    $('#form-container').addClass('hidden');
-    $('#contact-success').removeClass('hidden');
+function showContactSuccess(response){
+    if(response === 200){
+        $('#form-container').addClass('hidden');
+        $('#contact-success').removeClass('hidden');
+        $('#contact-fail').addClass('hidden');
+    } else {
+        $('#contact-fail').removeClass('hidden');
+    }
 }

@@ -412,6 +412,10 @@ $baseurl: '{{ site.baseurl }}/images';
 		}
 	}
 
+	.error {
+		color: #ed4933;
+	}
+
 	.form-terms {
 		display: none;
 	}
