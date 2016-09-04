@@ -7,6 +7,7 @@ var config = {
 };
 firebase.initializeApp(config);
 
+var CONTACT_HOST = 'http://localhost:3000';
 var contactForm = document.querySelector('#contact-form');
 contactForm.addEventListener('submit', prepareFormInfo, false);
 
@@ -24,10 +25,15 @@ function prepareFormInfo(event) {
 }
 
 function submitContact(email, message){
-    firebase.database().ref('contacts').push({
-        email: email,
-        message: message
-    }, showContactSuccess);
+    $.ajax({
+        url: CONTACT_HOST + '/contact',
+        type: "POST",
+        data: {
+            email: email,
+            message: message
+        },
+        success: showContactSuccess
+    });
 }
 
 function showContactSuccess(){
