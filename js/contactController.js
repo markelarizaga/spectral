@@ -7,8 +7,9 @@ var config = {
 };
 firebase.initializeApp(config);
 
-var CONTACT_HOST = 'http://localhost:3000';
+var CONTACT_HOST = 'http://bfhbackend.herokuapp.com';
 var contactForm = document.querySelector('#contact-form');
+
 contactForm.addEventListener('submit', prepareFormInfo, false);
 
 function prepareFormInfo(event) {
@@ -17,11 +18,20 @@ function prepareFormInfo(event) {
     var message = $('#contact-message').val();
     var terms = $('#contact-terms');
 
+    toggleFormAvailability();
+    $('#submit-button').val('Enviando mensaje');
+    $('#contact-fail').addClass('hidden');
+
     if(!terms.checked){
         submitContact(email, message);
     } else {
         showContactSuccess();
     }
+}
+
+function toggleFormAvailability(){
+    var invertDisableStatus = function(elementIndex, disabledValue) { return !disabledValue; };
+    $("#contact-form :input").prop("disabled", invertDisableStatus);
 }
 
 function submitContact(email, message){
@@ -32,7 +42,8 @@ function submitContact(email, message){
             email: email,
             message: message
         },
-        success: showContactSuccess
+        success: showContactSuccess,
+        error: formSubmitError
     });
 }
 
@@ -44,4 +55,10 @@ function showContactSuccess(response){
     } else {
         $('#contact-fail').removeClass('hidden');
     }
+}
+
+function formSubmitError(){
+    toggleFormAvailability();
+    $('#submit-button').val('Enviar mensaje');
+    $('#contact-fail').removeClass('hidden');
 }
