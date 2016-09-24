@@ -1,12 +1,3 @@
-// Initialize Firebase
-var config = {
-    apiKey: "AIzaSyDWnAihJaF3txJ3SRycwwJbwJH7r3hREQg",
-    authDomain: "bfhabogados-d7aaf.firebaseapp.com",
-    databaseURL: "https://bfhabogados-d7aaf.firebaseio.com",
-    storageBucket: "",
-};
-firebase.initializeApp(config);
-
 var CONTACT_HOST = 'http://bfhbackend.herokuapp.com';
 var contactForm = document.querySelector('#contact-form');
 
