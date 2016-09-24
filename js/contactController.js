@@ -13,9 +13,11 @@ function prepareFormInfo(event) {
     $('#submit-button').val('Enviando mensaje');
     $('#contact-fail').addClass('hidden');
 
-    if(!terms.checked){
+    if(!terms.is(':checked')){
+        ga('send', 'event', 'contactForm', 'submit');
         submitContact(email, message);
     } else {
+        ga('send', 'event', 'contactForm', 'submit-bot');
         showContactSuccess();
     }
 }
@@ -28,7 +30,7 @@ function toggleFormAvailability(){
 function submitContact(email, message){
     $.ajax({
         url: CONTACT_HOST + '/contact',
-        type: "POST",
+        type: 'POST',
         data: {
             email: email,
             message: message
