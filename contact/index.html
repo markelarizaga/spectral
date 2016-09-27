@@ -5,35 +5,4 @@ title: Contacto
 	<h3>Lorem ipsum dolor</h3>
 	<p>Morbi mattis mi consectetur tortor elementum, varius pellentesque velit convallis. Aenean tincidunt lectus auctor mauris maximus, ac scelerisque ipsum tempor. Duis vulputate ex et ex tincidunt, quis lacinia velit aliquet. Duis non efficitur nisi, id malesuada justo. Maecenas sagittis felis ac sagittis semper. Curabitur purus leo, tempus sed finibus eget, fringilla quis risus. Maecenas et lorem quis sem varius sagittis et a est. Maecenas iaculis iaculis sem. Donec vel dolor at arcu tincidunt bibendum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce ut aliquet justo. Donec id neque ipsum. Integer eget ultricies odio. Nam vel ex a orci fringilla tincidunt. Aliquam eleifend ligula non velit accumsan cursus. Etiam ut gravida sapien.</p>
 	<hr />
-	<section>
-		<h4>Form</h4>
-		<form id="contact-form">
-			<div id="form-container" class="row uniform">
-				<div class="6u$ 12u$(xsmall)">
-					<input type="email" name="contact-email" id="contact-email" value="" placeholder="Email" required />
-				</div>
-				<div class="12u$">
-					<textarea name="contact-message" id="contact-message" placeholder="Escribe tu mensaje aquí" rows="6" required></textarea>
-				</div>
-				<div class="12u$ form-terms">
-					<input type="checkbox" name="contact-terms" id="contact-terms" />
-					<label for="contact-terms">Acepto los <a href="https://www.paypal.com/es/webapps/mpp/ua/useragreement-full" rel="nofollow">términos de servicio</a></label>
-				</div>
-				<div class="12u$">
-					<ul class="actions">
-						<li><input type="submit" id="submit-button" value="Enviar mensaje" class="special" /></li>
-						<li><input type="reset" value="Borrar" /></li>
-					</ul>
-				</div>
-			</div>
-			<div id="contact-success" class="hidden">
-				<p>La consulta se ha enviado correctamente.</p>
-			</div>
-			<div id="contact-fail" class="hidden error">
-				<br/>
-				<p>La consulta no se pudo enviar, por favor inténtalo de nuevo en unos minutos.</p>
-			</div>
-		</form>
-	</section>
-
-	<script src="../js/contactController.js"></script>
+	{% include contact-form.html %}
