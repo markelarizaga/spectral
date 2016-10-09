@@ -206,8 +206,9 @@ $baseurl: '{{ site.baseurl }}/images';
 		padding: 10px 10px 0 10px;
 		font-size: 0.9em;
 		z-index: 10;
-		@include vendor('transition', 'opacity #{_duration(fadein)} ease-in-out');
-		@include vendor('transition-delay', '1.25s');
+		@include vendor('transition', ('transform 0.75s ease', 'opacity 0.75s ease'));
+		@include vendor('transition-delay', '3.5s');
+		@include vendor('transform', 'translateY(0)');
 
 		@include breakpoint(small) {
 			display: block;
@@ -1660,6 +1661,10 @@ $baseurl: '{{ site.baseurl }}/images';
 				opacity: 1;
 			}
 		}
+		.floating-window {
+				@include vendor('transform', 'translateY(8.5em)');
+				opacity: 0;
+			}
 	}
 
 /* CTA */
