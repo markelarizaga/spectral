@@ -96,15 +96,22 @@
 			}
 
 		// Cookies consent
+			var $cookiesNoticePopup = $('#cookies-notice');
 			if(document.cookie.indexOf('cookie-consent') === -1){
-				$('#cookies-notice').removeClass('hidden');
+				$cookiesNoticePopup.removeClass('hidden');
 				$('#accept-cookies-button').one('click', cookiesAccepted);
 			} else {
 				loadGoogleAnalytics();
 			}
 
+			$body.scrollex({
+					top:		$banner.outerHeight() + 1,
+					enter:		function() { $cookiesNoticePopup.addClass('alt'); },
+					leave:		function() { $cookiesNoticePopup.removeClass('alt'); }
+				});
+
 			function cookiesAccepted(){
-				$('#cookies-notice').addClass('hidden');
+				$cookiesNoticePopup.addClass('hidden');
 				addCookie('cookie-consent', true, 1000);
 				loadGoogleAnalytics();
 			}
