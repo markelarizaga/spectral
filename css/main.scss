@@ -205,11 +205,13 @@ $baseurl: '{{ site.baseurl }}/images';
 		background-color: rgba(0, 0, 0, 0.2);
 		padding: 10px 10px 0 10px;
 		font-size: 0.9em;
+		text-align: justify;
 		z-index: 10;
-		@include vendor('transition', ('transform 0.75s ease', 'opacity 0.75s ease'));
-		@include vendor('transition-delay', '3.5s');
+		@include vendor('transition', ('transform 0.75s ease 3.5s',
+										'opacity 0.75s ease 3.5s',
+										'background-color #{_duration(slow-transitions)} ease-in-out 0s',
+										'color #{_duration(slow-transitions)} ease-in-out 0s'));
 		@include vendor('transform', 'translateY(0)');
-		@include vendor('transition', ('background-color #{_duration(slow-transitions)} ease-in-out', 'color #{_duration(slow-transitions)} ease-in-out'));
 
 		@include breakpoint(small) {
 			display: block;
@@ -222,7 +224,8 @@ $baseurl: '{{ site.baseurl }}/images';
 
 		&.alt {
 			background-color: rgba(0, 0, 0, 0.8);
-			@include vendor('transition', ('background-color #{_duration(slow-transitions)} ease-in-out', 'color #{_duration(slow-transitions)} ease-in-out'));
+			@include vendor('transition', ('background-color #{_duration(slow-transitions)} ease-in-out',
+											'color #{_duration(slow-transitions)} ease-in-out'));
 		}
 	}
 
