@@ -99,18 +99,26 @@
 			if(document.cookie.indexOf('cookie-consent') === -1){
 				$('#cookies-notice').removeClass('hidden');
 				$('#accept-cookies-button').one('click', cookiesAccepted);
+			} else {
+				loadGoogleAnalytics();
 			}
 
 			function cookiesAccepted(){
 				$('#cookies-notice').addClass('hidden');
 				addCookie('cookie-consent', true, 1000);
-				console.log('Download GA');
+				loadGoogleAnalytics();
 			}
 
 			function addCookie(name, value, expirationDays){
 				var now = new Date();
     			now.setTime(now.getTime() + (expirationDays*24*60*60*1000));
 				document.cookie = name + '=' + value + '; expires=' + now.toUTCString();
+			}
+
+			function loadGoogleAnalytics(){
+				var script = document.createElement('script');
+				script.src = '/js/googleAnalytics.js';
+				document.head.appendChild(script);
 			}
 
 	});
