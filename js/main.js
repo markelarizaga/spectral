@@ -126,6 +126,18 @@
 				var script = document.createElement('script');
 				script.src = '/js/googleAnalytics.js';
 				document.head.appendChild(script);
+
+				$('#banner-contact-button').click(function(){
+					ga('send', 'event', 'contact', 'click', 'header-contact');
+				});
+
+				$('#banner-meet-us-button').click(function(){
+					ga('send', 'event', 'navigation', 'click', 'meet-us');
+				});
+
+				$('#menu-toggle').click(function(){
+					ga('send', 'event', 'navigation', 'click', 'side-menu');
+				});
 			}
 
 	});
