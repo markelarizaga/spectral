@@ -485,6 +485,11 @@ $baseurl: '{{ site.baseurl }}/images';
 		opacity: 1.0;
 	}
 
+	.legal-note {
+		font-size: 10pt;
+		color: #92928c;
+	}
+
 /* Box */
 
 	.box {
