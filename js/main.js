@@ -95,6 +95,51 @@
 
 			}
 
+		// Cookies consent
+			var $cookiesNoticePopup = $('#cookies-notice');
+			if(document.cookie.indexOf('cookie-consent') === -1){
+				$cookiesNoticePopup.removeClass('hidden');
+				$('#accept-cookies-button').one('click', cookiesAccepted);
+			} else {
+				loadGoogleAnalytics();
+			}
+
+			$body.scrollex({
+					top:		$banner.outerHeight() + 1,
+					enter:		function() { $cookiesNoticePopup.addClass('alt'); },
+					leave:		function() { $cookiesNoticePopup.removeClass('alt'); }
+				});
+
+			function cookiesAccepted(){
+				$cookiesNoticePopup.addClass('hidden');
+				addCookie('cookie-consent', true, 1000);
+				loadGoogleAnalytics();
+			}
+
+			function addCookie(name, value, expirationDays){
+				var now = new Date();
+    			now.setTime(now.getTime() + (expirationDays*24*60*60*1000));
+				document.cookie = name + '=' + value + '; expires=' + now.toUTCString();
+			}
+
+			function loadGoogleAnalytics(){
+				var script = document.createElement('script');
+				script.src = '/js/googleAnalytics.js';
+				document.head.appendChild(script);
+
+				$('#banner-contact-button').click(function(){
+					ga('send', 'event', 'contact', 'click', 'header-contact');
+				});
+
+				$('#banner-meet-us-button').click(function(){
+					ga('send', 'event', 'navigation', 'click', 'meet-us');
+				});
+
+				$('#menu-toggle').click(function(){
+					ga('send', 'event', 'navigation', 'click', 'side-menu');
+				});
+			}
+
 	});
 
 })(jQuery);
