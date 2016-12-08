@@ -246,7 +246,7 @@ $baseurl: '{{ site.baseurl }}/images';
 		display: none;
 	}
 
-	.service-anchor::before {
+	.in-page-anchor::before {
 	 	content:"";
 	 	display:block;
 	 	height:$header-height; /* fixed header height*/
