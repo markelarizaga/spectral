@@ -104,6 +104,13 @@
 				loadGoogleAnalytics();
 			}
 
+		    if(!$body.hasClass('is-mobile')){
+		        var clickToCall = $('#click-to-call');
+				if(clickToCall){
+					clickToCall.html(clickToCall.text());
+				}
+		    }
+
 			$body.scrollex({
 					top:		$banner.outerHeight() + 1,
 					enter:		function() { $cookiesNoticePopup.addClass('alt'); },
