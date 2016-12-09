@@ -202,10 +202,10 @@ $baseurl: '{{ site.baseurl }}/images';
 		position: fixed;
 		right: 10px;
 		bottom: 10px;
-		width: 300px;
+		width: 400px;
 		background-color: rgba(0, 0, 0, 0.2);
-		padding: 10px 10px 0 10px;
-		font-size: 0.9em;
+		padding: 15px 25px 0 25px;
+		font-size: 0.6em;
 		text-align: justify;
 		z-index: 10;
 		@include vendor('transition', ('transform 0.75s ease 3.5s',
@@ -214,7 +214,7 @@ $baseurl: '{{ site.baseurl }}/images';
 										'color #{_duration(slow-transitions)} ease-in-out 0s'));
 		@include vendor('transform', 'translateY(0)');
 
-		@include breakpoint(small) {
+		@include breakpoint(medium) {
 			display: block;
 			text-align: center;
 			width: 100%;
@@ -227,6 +227,11 @@ $baseurl: '{{ site.baseurl }}/images';
 			background-color: rgba(0, 0, 0, 0.8);
 			@include vendor('transition', ('background-color #{_duration(slow-transitions)} ease-in-out',
 											'color #{_duration(slow-transitions)} ease-in-out'));
+		}
+
+		button {
+			display: inline-block !important;
+			width: 48% !important;
 		}
 	}
 

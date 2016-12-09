@@ -100,6 +100,7 @@
 			if(document.cookie.indexOf('cookie-consent') === -1){
 				$cookiesNoticePopup.removeClass('hidden');
 				$('#accept-cookies-button').one('click', cookiesAccepted);
+				$('#deny-cookies-button').one('click', hideCookiesPopup);
 			} else {
 				loadGoogleAnalytics();
 			}
@@ -117,8 +118,12 @@
 					leave:		function() { $cookiesNoticePopup.removeClass('alt'); }
 				});
 
-			function cookiesAccepted(){
+			function hideCookiesPopup() {
 				$cookiesNoticePopup.addClass('hidden');
+			}
+
+			function cookiesAccepted(){
+				hideCookiesPopup();
 				addCookie('cookie-consent', true, 1000);
 				loadGoogleAnalytics();
 			}
