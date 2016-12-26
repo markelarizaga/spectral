@@ -106,11 +106,11 @@
 			}
 
 		    if(!$body.hasClass('is-mobile')){
-		        var clickToCall = $('#click-to-call');
+				var clickToCall = $('#click-to-call');
 				if(clickToCall){
 					clickToCall.html(clickToCall.text());
 				}
-		    }
+			}
 
 			$body.scrollex({
 					top:		$banner.outerHeight() + 1,
@@ -140,18 +140,28 @@
 				document.head.appendChild(script);
 
 				$('#banner-contact-button').click(function(){
-					ga('send', 'event', 'contact', 'click', 'header-contact');
+					sendAnalyticsEvent('contact', 'click', 'header-contact');
 				});
 
 				$('#banner-meet-us-button').click(function(){
-					ga('send', 'event', 'navigation', 'click', 'meet-us');
+					sendAnalyticsEvent('navigation', 'click', 'meet-us');
 				});
 
 				$('#menu-toggle').click(function(){
-					ga('send', 'event', 'navigation', 'click', 'side-menu');
+					sendAnalyticsEvent('navigation', 'click', 'side-menu');
 				});
+
+				if($body.hasClass('is-mobile')){
+					var clickToCall = $('#click-to-call');
+					clickToCall.on('click', function() {
+						sendAnalyticsEvent('contact', 'click', 'click-to-call');
+					});
+				}
 			}
 
+			function sendAnalyticsEvent(category, action, value) {
+				ga('send', 'event', category, action, value);
+			}
 	});
 
 })(jQuery);
