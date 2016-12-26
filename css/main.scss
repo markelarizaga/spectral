@@ -700,7 +700,7 @@ $baseurl: '{{ site.baseurl }}/images';
 					padding-right: 3.5em;
 
 					@include breakpoint(small) {
-						padding: 0 1em !important;
+						padding: 0 1em 2em !important;
 					}
 				}
 			}
