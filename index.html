@@ -30,6 +30,7 @@ layout: landing
 			</div>
 		</section>
 
+		{% if jekyll.environment == "production" %}
 	<!-- Two -->
 		<section id="two" class="wrapper alt style2">
 			<section class="spotlight">
@@ -51,6 +52,7 @@ layout: landing
 				</div>
 			</section>
 		</section>
+		{% endif %}
 
 	<!-- Three -->
 		<section id="three" class="wrapper style3 special">
