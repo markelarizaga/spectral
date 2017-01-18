@@ -1,4 +1,4 @@
-var CONTACT_HOST = 'http://bfhbackend.herokuapp.com';
+var CONTACT_HOST = '//bfhbackend.herokuapp.com';
 var contactForm = document.querySelector('#contact-form');
 
 contactForm.addEventListener('submit', prepareFormInfo, false);
