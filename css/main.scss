@@ -22,6 +22,7 @@ $baseurl: '{{ site.baseurl }}/images';
 		xlarge: '(max-width: 1680px)',
 		large: '(max-width: 1280px)',
 		medium: '(max-width: 980px)',
+		premedium: '(max-width: 900px)',
 		small: '(max-width: 736px)',
 		xsmall: '(max-width: 480px)'
 	));
@@ -316,6 +317,71 @@ $baseurl: '{{ site.baseurl }}/images';
 			br {
 				display: none;
 			}
+		}
+
+		&.alt .ad-header:not(.show) {
+			display: none;
+		}
+
+		&.alt .ad-header.show {
+			background-color: #21B2A6;
+			padding: 0 1.5em;
+			font-size: 0.9em;
+			height: 100%;
+			line-height: 3.3em;
+
+			.close-button {
+				background-image: url('images/close.svg');
+				display: inline-block;
+				background-repeat: no-repeat;
+				width: 16px;
+				height: 16px;
+				cursor: pointer;
+				margin: 0 0.5em;
+
+				@include breakpoint(xlarge) {
+					margin: 1.1em 1.5em;
+					position: absolute;
+				}
+
+				@include breakpoint(large) {
+					margin: 1.3em 1.5em;
+					position: absolute;
+				}
+
+				@include breakpoint(medium) {
+					margin: 1.5em 1.5em;
+					position: absolute;
+				}
+
+				@include breakpoint(premedium) {
+					margin: 1.9em 1.5em;
+					position: absolute;
+				}
+			}
+
+			@include breakpoint(large) {
+				font-size: 0.8em;
+				line-height: 4em;
+			}
+
+			@include breakpoint(medium) {
+				font-size: 0.7em;
+				line-height: 4.5em;
+			}
+
+			@include breakpoint(premedium) {
+				font-size: 0.5em;
+				line-height: 6em;
+			}
+
+			@include breakpoint(small) {
+				display: none;
+			}
+		}
+
+		&:not(.alt) .ad-header {
+			display: none;
 		}
 	}
 

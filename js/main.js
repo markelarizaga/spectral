@@ -105,6 +105,22 @@
 				loadGoogleAnalytics();
 			}
 
+		// Show ad header management
+			var adHeader = $('#ad-header');
+			if(window.localStorage && window.localStorage.getItem('hideAdHeader') === 'true') {
+				adHeader.remove();
+			} else {
+				if($('#header').hasClass('alt')) {
+					adHeader.addClass('show');
+				}
+				adHeader.find('#close-button').click(function () {
+		          adHeader.remove();
+				  if(window.localStorage) {
+					  window.localStorage.setItem('hideAdHeader', true);
+				  }
+		        });
+			}
+
 		    if(!$body.hasClass('is-mobile')){
 				var clickToCall = $('#click-to-call');
 				if(clickToCall){
