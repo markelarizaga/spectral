@@ -1,6 +1,12 @@
 <section>
     <h4>Contacta con nosotros</h4>
+    <div>
+        <input id="accept-legal-note" type="checkbox" />
+        <label for="accept-legal-note" class="legal-note">Debes aceptar nuestra <a href="/privacy" target="_blank">política de privacidad</a> para contactar con nosotros.</label>
+        <br/>
+    </div>
     <form id="contact-form">
+      <fieldset id="contact-form-fields" disabled>
         <div id="form-container" class="row uniform">
             <div class="6u$ 12u$(xsmall)">
                 <input type="email" name="contact-email" id="contact-email" value="" placeholder="Email" required />
@@ -26,10 +32,7 @@
             <br/>
             <p>La consulta no se pudo enviar, por favor inténtalo de nuevo en unos minutos.</p>
         </div>
-        <div>
-            <br/>
-            <p class="legal-note">El envío del formulario supone la aceptación de nuestra <a href="/privacy" target="_blank">política de privacidad</a>.</p>
-        </div>
+      </fieldset>
     </form>
 </section>
 

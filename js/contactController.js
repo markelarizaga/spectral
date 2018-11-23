@@ -1,7 +1,10 @@
 var CONTACT_HOST = '//bfhbackend.herokuapp.com';
 var contactForm = document.querySelector('#contact-form');
+var legalTermsAcceptanceCheckox = document.querySelector('#accept-legal-note');
+var contactFormFields = document.querySelector("#contact-form-fields");
 
 contactForm.addEventListener('submit', prepareFormInfo, false);
+legalTermsAcceptanceCheckox.addEventListener('change', toggleFormEnablement);
 
 function prepareFormInfo(event) {
     event.preventDefault();
@@ -54,4 +57,12 @@ function formSubmitError(){
     toggleFormAvailability();
     $('#submit-button').val('Enviar mensaje');
     $('#contact-fail').removeClass('hidden');
+}
+
+function toggleFormEnablement(){
+  if (this.checked) {
+    contactFormFields.disabled = false;
+  } else {
+    contactFormFields.disabled = true;
+  }
 }
