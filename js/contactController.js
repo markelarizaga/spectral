@@ -17,10 +17,10 @@ function prepareFormInfo(event) {
     $('#contact-fail').addClass('hidden');
 
     if(!terms.is(':checked')){
-        ga && ga('send', 'event', 'contactForm', 'submit');
+        typeof ga !== "undefined" && ga('send', 'event', 'contactForm', 'submit');
         submitContact(email, message);
     } else {
-        ga && ga('send', 'event', 'contactForm', 'submit-bot');
+        typeof ga !== "undefined" && ga('send', 'event', 'contactForm', 'submit-bot');
         showContactSuccess();
     }
 }
