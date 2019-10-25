@@ -2,6 +2,9 @@
 .sass-cache/
 _site
 
+# IDEs
+.idea/
+
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
