@@ -176,7 +176,7 @@
 			}
 
 			function sendAnalyticsEvent(category, action, value) {
-				ga('send', 'event', category, action, value);
+				ga && ga('send', 'event', category, action, value);
 			}
 	});
 
