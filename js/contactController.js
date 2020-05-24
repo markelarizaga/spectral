@@ -32,13 +32,7 @@ function toggleFormAvailability(){
 function submitContact(email, message){
     const formData = { email, message };
     const serializedData = encodeURIComponent(JSON.stringify(formData));
-    $.ajax({
-        url: contactForm.attr('action'),
-        type: 'POST',
-        data: serializedData,
-        success: showContactSuccess,
-        error: formSubmitError
-    });
+    $.post(contactForm.attr('action'), serializedData).then(showContactSuccess);
 }
 
 function showContactSuccess(response){
