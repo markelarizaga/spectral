@@ -1,4 +1,3 @@
-const CONTACT_HOST = '//bfhbackend.herokuapp.com';
 const contactForm = document.querySelector('#contact-form');
 const legalTermsAcceptanceCheckox = document.querySelector('#accept-legal-note');
 const contactFormFields = document.querySelector("#contact-form-fields");
