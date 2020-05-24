@@ -1,7 +1,7 @@
 let contactForm = null;
-document.onload(function() {
+document.onload = function() {
     contactForm = $('#contact-form');
-});
+};
 const legalTermsAcceptanceCheckox = document.querySelector('#accept-legal-note');
 const contactFormFields = document.querySelector("#contact-form-fields");
 
