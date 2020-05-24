@@ -1,8 +1,8 @@
-const contactForm = document.querySelector('#contact-form');
+const contactForm = $('#contact-form');
 const legalTermsAcceptanceCheckox = document.querySelector('#accept-legal-note');
 const contactFormFields = document.querySelector("#contact-form-fields");
 
-contactForm.addEventListener('submit', prepareFormInfo, false);
+contactForm.submit(prepareFormInfo);
 legalTermsAcceptanceCheckox.addEventListener('change', toggleFormEnablement);
 
 function prepareFormInfo(event) {
