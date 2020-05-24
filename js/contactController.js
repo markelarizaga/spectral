@@ -1,16 +1,16 @@
-var CONTACT_HOST = '//bfhbackend.herokuapp.com';
-var contactForm = document.querySelector('#contact-form');
-var legalTermsAcceptanceCheckox = document.querySelector('#accept-legal-note');
-var contactFormFields = document.querySelector("#contact-form-fields");
+const CONTACT_HOST = '//bfhbackend.herokuapp.com';
+const contactForm = document.querySelector('#contact-form');
+const legalTermsAcceptanceCheckox = document.querySelector('#accept-legal-note');
+const contactFormFields = document.querySelector("#contact-form-fields");
 
 contactForm.addEventListener('submit', prepareFormInfo, false);
 legalTermsAcceptanceCheckox.addEventListener('change', toggleFormEnablement);
 
 function prepareFormInfo(event) {
     event.preventDefault();
-    var email = $('#contact-email').val();
-    var message = $('#contact-message').val();
-    var terms = $('#contact-terms');
+    const email = $('#contact-email').val();
+    const message = $('#contact-message').val();
+    const terms = $('#contact-terms');
 
     toggleFormAvailability();
     $('#submit-button').val('Enviando mensaje');
@@ -26,18 +26,17 @@ function prepareFormInfo(event) {
 }
 
 function toggleFormAvailability(){
-    var invertDisableStatus = function(elementIndex, disabledValue) { return !disabledValue; };
+    const invertDisableStatus = function(elementIndex, disabledValue) { return !disabledValue; };
     $("#contact-form :input").prop("disabled", invertDisableStatus);
 }
 
 function submitContact(email, message){
+    const formData = { email, message };
+    const serializedData = encodeURIComponent(JSON.stringify(formData));
     $.ajax({
-        url: CONTACT_HOST + '/contact',
+        url: contactForm.attr('action'),
         type: 'POST',
-        data: {
-            email: email,
-            message: message
-        },
+        data: serializedData,
         success: showContactSuccess,
         error: formSubmitError
     });
@@ -60,9 +59,5 @@ function formSubmitError(){
 }
 
 function toggleFormEnablement(){
-  if (this.checked) {
-    contactFormFields.disabled = false;
-  } else {
-    contactFormFields.disabled = true;
-  }
+  contactFormFields.disabled = !this.checked;
 }
