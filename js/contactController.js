@@ -1,11 +1,11 @@
 let contactForm = null;
 document.onload = function() {
     contactForm = $('#contact-form');
+    contactForm.submit(prepareFormInfo);
 };
 const legalTermsAcceptanceCheckox = document.querySelector('#accept-legal-note');
 const contactFormFields = document.querySelector("#contact-form-fields");
 
-contactForm.submit(prepareFormInfo);
 legalTermsAcceptanceCheckox.addEventListener('change', toggleFormEnablement);
 
 function prepareFormInfo(event) {
